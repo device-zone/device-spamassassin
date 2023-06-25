@@ -1,0 +1,23 @@
+#!/bin/sh
+  
+set -e
+umask 0002
+
+if [ "$1" == "--" ]; then
+
+  /usr/bin/sudo /usr/bin/systemctl --quiet disable spamass-milter.service
+
+  if test -f "disabled.bin"; then
+    echo "antispam is already disabled."
+  else
+    touch "disabled.bin"
+    if systemctl is-active --quiet spamass-milter-autodiscovery.service; then
+      /usr/bin/sudo /usr/bin/systemctl stop spamass-milter.service
+    else
+      echo "antispam will be disabled on next reboot."
+    fi
+  fi
+
+fi
+
+

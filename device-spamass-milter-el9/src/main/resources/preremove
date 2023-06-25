@@ -1,0 +1,7 @@
+if [ $1 = 0 ]; then
+  /usr/bin/systemctl stop spamass-milter-autodiscovery.service
+  /usr/bin/systemctl stop spamass-milter.service
+  /usr/bin/systemctl disable spamass-milter-autodiscovery.service
+  /usr/bin/systemctl disable spamass-milter.service
+fi
+

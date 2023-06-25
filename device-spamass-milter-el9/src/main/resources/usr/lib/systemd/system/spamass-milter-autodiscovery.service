@@ -1,0 +1,18 @@
+# systemd service for managing all spamass-milter autoconfiguration.
+
+[Unit]
+Description=SpamAssasin Milter Configuration Autodiscovery
+Requires=spamass-milter.service
+PartOf=spamass-milter.service
+ReloadPropagatedFrom=spamass-milter.service
+Before=spamass-milter.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /usr/libexec/device-autodiscovery/spamass-milter
+ExecReload=/bin/bash /usr/libexec/device-autodiscovery/spamass-milter
+RemainAfterExit=on
+
+[Install]
+WantedBy=multi-user.target
+
