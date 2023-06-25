@@ -1,0 +1,2 @@
+# device-spamassassin
+Spamassassin appliance
