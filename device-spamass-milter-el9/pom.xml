@@ -171,10 +171,13 @@
             <fileEncoding>utf-8</fileEncoding>
           </preremoveScriptlet>
           <requires>
-            <require>spamass-milter-postfix</require>
+            <require>spamass-milter</require>
             <require>device</require>
           </requires>
-        </configuration>
+          <conflicts>
+            <conflict>spamass-milter-postfix</conflict>
+          </conflicts>
+	</configuration>
       </plugin>
     </plugins>
   </build>

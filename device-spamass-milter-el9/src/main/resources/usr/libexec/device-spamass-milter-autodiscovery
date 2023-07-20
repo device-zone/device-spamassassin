@@ -40,7 +40,7 @@ cat > "spamass-milter" <<- EOF
 #
 
 ### Override for your different local config if necessary
-#SOCKET=/run/spamass-milter/spamass-milter.sock
+SOCKET=/run/spamass-milter/spamass-milter.sock
 
 ### You may add configuration parameters here, see spamass-milter(1)
 ###
@@ -50,7 +50,7 @@ cat > "spamass-milter" <<- EOF
 ### wish to do this but otherwise it's best to run as the unprivileged user
 ### sa-milt by using the normal spamass-milter.service
 #EXTRA_FLAGS="-m -r 15"
-EXTRA_FLAGS="-g sa-milt -i ::1,127.0.0.1"
+EXTRA_FLAGS="-g sa-milt"
 EOF
 
 
